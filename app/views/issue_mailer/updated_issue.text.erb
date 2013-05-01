@@ -1,0 +1,27 @@
+Hi <%= @issue.name %>,
+
+Your issue has been updated.
+
+<% unless @reply.body.empty? %>
+<%= @reply.user.email %> wrote:
+---
+  <%= @reply.body %>
+---
+
+<% end %>
+<% unless @reply.state_change.nil? %>
+The issue has been updated to:
+  <%= @reply.state_change %>
+
+<% end %>
+<% unless @reply.assigned_user.nil? %>
+The issue has been assigned to:
+  <%= @reply.assigned_user.email %>
+
+<% end %>
+
+You can view all information on your support ticket here:
+  <%= issue_url(@issue) %>
+
+Kind Regards,
+The host-tastic support team

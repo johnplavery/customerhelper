@@ -1,0 +1,521 @@
+Connecting to database specified by database.yml
+Creating scope :open. Overwriting existing method Issue.open.
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (3.5ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-818847' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-818847' LIMIT 1
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["body", "Message"], ["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["department_id", nil], ["email", "admin@example.com"], ["name", "MyString"], ["ref", "TST-818847"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by IssuesController#show as HTML
+  Parameters: {"id"=>"TST-818847"}
+  [1m[36mIssue Load (0.2ms)[0m  [1mSELECT "issues".* FROM "issues" WHERE "issues"."ref" = 'TST-818847' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" 
+  Rendered issues/show.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 76ms (Views: 72.0ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "issues" [0m
+Processing by IssuesController#create as HTML
+  Parameters: {"issue"=>{"name"=>"MyString", "email"=>"admin@example.com", "subject"=>"Testing", "body"=>"Message"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-671898' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-671898' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["body", "Message"], ["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["department_id", nil], ["email", "admin@example.com"], ["name", "MyString"], ["ref", "TST-671898"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+Sent mail to admin@example.com (18ms)
+Date: Wed, 01 May 2013 11:08:40 +0000
+From: from@example.com
+To: admin@example.com
+Message-ID: <5180f7b8881b2_1bb17e5ff4285b6@my-ruby-box-4866.mail>
+Subject: [TST-671898] New Issue Opened: Testing
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi MyString,
+
+Thank you for reporting an issue to use, one of our support staff will be in touch shortly.
+
+You can view your support ticket here:
+  http://localhost:3000/TST-671898
+
+Kind Regards,
+The host-tastic support team
+
+Redirected to http://test.host/TST-671898
+Completed 302 Found in 159ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "issues" [0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by IssuesController#create as HTML
+  Parameters: {"issue"=>{"name"=>"MyString", "email"=>"admin@example.com", "subject"=>"Testing", "body"=>"Message"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-775704' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-775704' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["body", "Message"], ["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["department_id", nil], ["email", "admin@example.com"], ["name", "MyString"], ["ref", "TST-775704"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+
+Sent mail to admin@example.com (6ms)
+Date: Wed, 01 May 2013 11:08:40 +0000
+From: from@example.com
+To: admin@example.com
+Message-ID: <5180f7b88ff53_1bb17e5ff428628@my-ruby-box-4866.mail>
+Subject: [TST-775704] New Issue Opened: Testing
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi MyString,
+
+Thank you for reporting an issue to use, one of our support staff will be in touch shortly.
+
+You can view your support ticket here:
+  http://localhost:3000/TST-775704
+
+Kind Regards,
+The host-tastic support team
+
+Redirected to http://test.host/TST-775704
+Completed 302 Found in 21ms (ActiveRecord: 0.7ms)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by IssuesController#create as HTML
+  Parameters: {"issue"=>{"name"=>"MyString", "email"=>"admin@example.com", "subject"=>"Testing", "body"=>"Message"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.2ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-338042' LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-338042' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["body", "Message"], ["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["department_id", nil], ["email", "admin@example.com"], ["name", "MyString"], ["ref", "TST-338042"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+Sent mail to admin@example.com (7ms)
+Date: Wed, 01 May 2013 11:08:40 +0000
+From: from@example.com
+To: admin@example.com
+Message-ID: <5180f7b8a3644_1bb17e5ff428784@my-ruby-box-4866.mail>
+Subject: [TST-338042] New Issue Opened: Testing
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi MyString,
+
+Thank you for reporting an issue to use, one of our support staff will be in touch shortly.
+
+You can view your support ticket here:
+  http://localhost:3000/TST-338042
+
+Kind Regards,
+The host-tastic support team
+
+Redirected to http://test.host/TST-338042
+Completed 302 Found in 22ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by IssuesController#create as HTML
+  Parameters: {"issue"=>{"name"=>"MyString", "email"=>"admin@example.com", "subject"=>"Testing", "body"=>"Message"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-734140' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-734140' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["body", "Message"], ["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["department_id", nil], ["email", "admin@example.com"], ["name", "MyString"], ["ref", "TST-734140"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+
+Sent mail to admin@example.com (6ms)
+Date: Wed, 01 May 2013 11:08:40 +0000
+From: from@example.com
+To: admin@example.com
+Message-ID: <5180f7b8a99ca_1bb17e5ff42881b@my-ruby-box-4866.mail>
+Subject: [TST-734140] New Issue Opened: Testing
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi MyString,
+
+Thank you for reporting an issue to use, one of our support staff will be in touch shortly.
+
+You can view your support ticket here:
+  http://localhost:3000/TST-734140
+
+Kind Regards,
+The host-tastic support team
+
+Redirected to http://test.host/TST-734140
+Completed 302 Found in 21ms (ActiveRecord: 0.8ms)
+  [1m[36mIssue Load (0.2ms)[0m  [1mSELECT "issues".* FROM "issues" ORDER BY "issues"."id" DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by IssuesController#create as HTML
+  Parameters: {"issue"=>{}}
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by IssuesController#create as HTML
+  Parameters: {"issue"=>{}}
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by IssuesController#new as HTML
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["name", "Test Dept."], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00]]
+  [1m[36m (20.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIssue Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-201033' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-201033' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-539229' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-539229' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-539229' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["department_id", 1], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-539229"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-539229' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-740173' LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-740173' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-852736' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-852736' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-679149' LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-679149' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-589183' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-589183' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-143915' LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-143915' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["name", "Test Dept"], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-597804' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-597804' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["department_id", 2], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-597804"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff@example.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "staff@example.com"], ["encrypted_password", "$2a$04$5yoSyb83qHfWdVEUjKB.UOB4KVr8nRUTsMCNlWq7IrPBppRDS38pK"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["name", "Test Dept"], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-585985' LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-585985' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["department_id", 2], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-585985"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "staff@example.com"], ["encrypted_password", "$2a$04$GiMnsN5pA4jDuiVY9rLvOuU1hb4rJWVXpVDCsgdEpioY7xIAQYMGa"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE ("issues"."ref" = 'TST-585985' AND "issues"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  UPDATE "issues" SET "state" = 'on_hold', "updated_at" = '2013-05-01 11:08:40.935001' WHERE "issues"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["name", "Test Dept"], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-887034' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-887034' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["department_id", 2], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-887034"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff@example.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 01 May 2013 11:08:40 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "staff@example.com"], ["encrypted_password", "$2a$04$KVPloubWvGT.QxmhhPKTKuSMds5aTDtO9MYrt4X3j3hlv1k8unl5u"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 01 May 2013 11:08:40 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE ("issues"."ref" = 'TST-887034' AND "issues"."id" != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "issues" SET "state" = 'on_hold', "updated_at" = '2013-05-01 11:08:40.957833' WHERE "issues"."id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE ("issues"."ref" = 'TST-887034' AND "issues"."id" != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "issues" SET "state" = 'waiting_for_staff_response', "updated_at" = '2013-05-01 11:08:41.041600' WHERE "issues"."id" = 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "replies" ("assigned_user_id", "body", "created_at", "issue_id", "state_change", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["assigned_user_id", nil], ["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["issue_id", 1], ["state_change", nil], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "replies" SET "state_change" = 'waiting for staff response', "updated_at" = '2013-05-01 11:08:41.046492' WHERE "replies"."id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["name", "Test Dept"], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-062594' LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-062594' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["department_id", 2], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-062594"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "staff@example.com"], ["encrypted_password", "$2a$04$lEs8TrA2b0Mnhu35tMCDxOIuJjAVK0qtAPdQ.NjlSfzU1.5RCbQau"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE ("issues"."ref" = 'TST-062594' AND "issues"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  UPDATE "issues" SET "state" = 'on_hold', "updated_at" = '2013-05-01 11:08:41.063933' WHERE "issues"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["name", "Test Dept"], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-936408' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-936408' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["department_id", 2], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-936408"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff@example.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "staff@example.com"], ["encrypted_password", "$2a$04$3jfL69.qnlXJHSgie5/DWu4l8HTjUWAssAf2VswtgcOvNSJwQc4AK"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE ("issues"."ref" = 'TST-936408' AND "issues"."id" != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "issues" SET "state" = 'on_hold', "updated_at" = '2013-05-01 11:08:41.082878' WHERE "issues"."id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE ("issues"."ref" = 'TST-936408' AND "issues"."id" != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "issues" SET "state" = 'waiting_for_customer', "updated_at" = '2013-05-01 11:08:41.089001' WHERE "issues"."id" = 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "replies" ("assigned_user_id", "body", "created_at", "issue_id", "state_change", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["assigned_user_id", nil], ["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["issue_id", 1], ["state_change", nil], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "replies" SET "state_change" = 'waiting for customer', "updated_at" = '2013-05-01 11:08:41.092345' WHERE "replies"."id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["name", "Test Dept"], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-181946' LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-181946' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["department_id", 2], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-181946"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "staff@example.com"], ["encrypted_password", "$2a$04$A3aKhColr4qhuIsW409/7e9t7G4C/NLe8DIFFjPSWf.pDUnsrP1sG"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE ("issues"."ref" = 'TST-181946' AND "issues"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "replies" ("assigned_user_id", "body", "created_at", "issue_id", "state_change", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["assigned_user_id", nil], ["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["issue_id", 1], ["state_change", nil], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["name", "Test Dept"], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-253657' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-253657' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["department_id", 2], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-253657"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff@example.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "staff@example.com"], ["encrypted_password", "$2a$04$OLcWAt4fTfbXKkRUB8JgWeMxomW9rb.IjFBiCLOnxLOKtscg5.9oS"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE ("issues"."ref" = 'TST-253657' AND "issues"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "replies" ("assigned_user_id", "body", "created_at", "issue_id", "state_change", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["assigned_user_id", nil], ["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["issue_id", 1], ["state_change", nil], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["name", "Test Dept"], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-929878' LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-929878' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["department_id", 2], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-929878"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "staff@example.com"], ["encrypted_password", "$2a$04$uVlyis7QU1k7HSyyVe97x.aEMtLR8HN5wQQ1hA9f4maak4r0JGdEa"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE ("issues"."ref" = 'TST-929878' AND "issues"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  UPDATE "issues" SET "state" = 'completed', "updated_at" = '2013-05-01 11:08:41.154855' WHERE "issues"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["name", "Test Dept"], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-316147' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-316147' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["department_id", 2], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-316147"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff@example.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "staff@example.com"], ["encrypted_password", "$2a$04$oY8aNHsTwZdJWrHrrKu3UeWlb92suvEUknaxrLaD8N9BAbwzBp86G"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE ("issues"."ref" = 'TST-316147' AND "issues"."id" != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "issues" SET "state" = 'completed', "updated_at" = '2013-05-01 11:08:41.171952' WHERE "issues"."id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["name", "Test Dept"], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-947178' LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-947178' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["department_id", 2], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-947178"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "staff@example.com"], ["encrypted_password", "$2a$04$4NrEHnp3nLerkpmKnU2AWudJ42v7rhUUYiYSWF2WBF2y6OQmwtfke"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mIssue Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE ("issues"."ref" = 'TST-947178' AND "issues"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  UPDATE "issues" SET "state" = 'cancelled', "updated_at" = '2013-05-01 11:08:41.189472' WHERE "issues"."id" = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["name", "Test Dept"], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-616565' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-616565' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["department_id", 2], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-616565"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff@example.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "staff@example.com"], ["encrypted_password", "$2a$04$UEK.7q25jhvgJJesCVhRm.D8L9SCsX6jyFJTcI.nFxJQjdK2SRfv."], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE ("issues"."ref" = 'TST-616565' AND "issues"."id" != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "issues" SET "state" = 'cancelled', "updated_at" = '2013-05-01 11:08:41.207012' WHERE "issues"."id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["name", "Test Dept"], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-988696' LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-988696' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["department_id", 2], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-988696"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "staff@example.com"], ["encrypted_password", "$2a$04$Zbl.CSOBfv91bQifoswZCODl3cBHJcQHT0f76atvXOZz3mJgjMOam"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["name", "Test Dept"], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-958045' LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-958045' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["department_id", 2], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-958045"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", nil]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff@example.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "staff@example.com"], ["encrypted_password", "$2a$04$H8GdoAmKNQ1/kBu2tD/hyO7wIsrlTiGD9yKa1fvn5A2SaNNl0YMD2"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE ("issues"."ref" = 'TST-958045' AND "issues"."id" != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "issues" SET "state" = 'waiting_for_customer', "updated_at" = '2013-05-01 11:08:41.238478' WHERE "issues"."id" = 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "replies" ("assigned_user_id", "body", "created_at", "issue_id", "state_change", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)  [["assigned_user_id", nil], ["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["issue_id", 1], ["state_change", nil], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "replies" SET "state_change" = 'waiting for customer', "updated_at" = '2013-05-01 11:08:41.241862' WHERE "replies"."id" = 1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "departments" ("created_at", "name", "ref_code", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["name", "Test Dept"], ["ref_code", "TST"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mIssue Exists (0.1ms)[0m  SELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-154246' LIMIT 1
+  [1m[36mIssue Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "issues" WHERE "issues"."ref" = 'TST-154246' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "issues" ("body", "created_at", "department_id", "email", "name", "ref", "state", "subject", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["body", "Lorum ipsum dolor sit amet"], ["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["department_id", 2], ["email", "john.doe@example.com"], ["name", "John Doe"], ["ref", "TST-154246"], ["state", "waiting_for_staff_response"], ["subject", "Testing"], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["user_id", nil]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'staff@example.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 01 May 2013 11:08:41 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "staff@example.com"], ["encrypted_password", "$2a$04$gYXlrUEuM8.kfwieAmzqSO1e.Mp2QoXX3.VqE69Zvy4hf1oHPUocS"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Wed, 01 May 2013 11:08:41 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Started GET "/" for 127.0.0.1 at 2013-05-01 11:08:41 +0000
+Processing by IssuesController#new as HTML
+  [1m[35mDepartment Load (0.3ms)[0m  SELECT "departments".* FROM "departments" 
+  Rendered issues/_form.html.haml (17.5ms)
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m

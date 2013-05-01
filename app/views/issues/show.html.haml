@@ -1,0 +1,90 @@
+.page-header
+  %h1= "Issue: #{@issue.ref}"
+  %h4= "Assigned to #{@issue.user.email}" if @issue.user.present?
+
+%p
+  %strong= Issue.human_attribute_name(:state) + ':'
+  %br
+  = @issue.human_state_name
+%p
+  %strong= Issue.human_attribute_name(:name) + ':'
+  %br
+  = @issue.name
+%p
+  %strong= Issue.human_attribute_name(:email) + ':'
+  %br
+  = @issue.email
+%p
+  %strong= Issue.human_attribute_name(:department) + ':'
+  %br
+  = @issue.department.name
+%p
+  %strong= Issue.human_attribute_name(:subject) + ':'
+  %br
+  = @issue.subject
+%p
+  %strong= Issue.human_attribute_name(:created) + ':'
+  %br
+  = "#{time_ago_in_words @issue.created_at} ago"
+.well
+  %p.lead
+    = @issue.body
+
+- unless @issue.replies.empty?
+  .page-header
+    %h4= "Replies"
+
+  - @issue.replies.each do | reply |
+    - unless reply.body.empty?
+      .well
+        %p.muted
+          = reply.display_user
+          updated
+          = time_ago_in_words reply.created_at
+          ago:
+        %p.lead= reply.body
+
+    - if reply.assigned_user.present?
+      .well
+        %p.muted
+          = reply.display_user
+          updated
+          = time_ago_in_words reply.created_at
+          ago:
+        %p
+          %i.icon-hand-right
+          Issue assigned to:
+          %strong= reply.assigned_user.email
+
+
+    - if reply.state_change.present?
+      .well
+        %p.muted
+          = reply.display_user
+          updated
+          = time_ago_in_words reply.created_at
+          ago:
+        %p
+          %i.icon-warning-sign
+          Status changed to:
+          %strong= reply.state_change
+
+- unless @issue.closed?
+  .page-header
+    %h4= "Update Issue"
+
+  = form_tag issue_path(@issue), :method => :put, :class => 'form-horizontal' do
+    - if user_signed_in?
+      .control-group
+        = label_tag :assign_to, nil, :class => 'control-label'
+        .controls
+          = select_tag :assigned_user_id, options_from_collection_for_select(@users, "id", "email", @issue.user_id), :prompt => 'Assign to...', :class => 'text_field'
+    .control-group
+      = label_tag :reply, nil, :class => 'control-label'
+      .controls
+        = text_area_tag :message, nil, :class => 'text_field'
+    .form-actions
+      = submit_tag 'Update', :class => 'btn btn-primary'
+      = submit_tag 'Suspend', :class => 'btn btn-inverse' unless @issue.on_hold?
+      = submit_tag 'Cancel', :class => 'btn btn-primary btn-danger'
+      = submit_tag 'Resolve', :class => 'btn btn-success'

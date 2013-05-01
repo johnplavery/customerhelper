@@ -1,0 +1,18 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Issue.human_attribute_name(:ref)
+      %th= Issue.human_attribute_name(:subject)
+      %th= Issue.human_attribute_name(:state)
+      %th= Issue.human_attribute_name(:name)
+      %th= Issue.human_attribute_name(:email)
+      %th= Issue.human_attribute_name(:created)
+  %tbody
+    - @issues.each do |issue|
+      %tr
+        %td= link_to issue.ref, issue_path(issue)
+        %td= issue.subject
+        %td= issue.human_state_name
+        %td= issue.name
+        %td= issue.email
+        %td= "#{time_ago_in_words issue.created_at} ago"
