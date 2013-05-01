@@ -1,5 +1,5 @@
-Customer Handler
-================
+Customer Issue Handler
+======================
 
 A Customer issue tracker written using Ruby on Rails
 
@@ -7,9 +7,9 @@ A Customer issue tracker written using Ruby on Rails
 
 1. Clone the repo
 
-2. Bundle gems
+2. Bundle install
 
-3. Setup the database
+3. Setup the database using
 
 ```
 rake db:setup
@@ -18,7 +18,7 @@ rake db:setup
 Note: sqlite used in dev test and production environments but the cod eis ORM agnostic.
 
 
-4. Start the server
+4. Start the server with following command
 
 ```
 rails s
